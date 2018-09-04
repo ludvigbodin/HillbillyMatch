@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Datalayer.ApplicationUser>
+@{
+    ViewBag.Title = HillbillyMatch.International.AppResources.HomePage;
+}
+<style>
+    .jumbotron {
+        background-image: url(/Content/Images/jumbotron2.jpg);
+        background-size: cover;
+        background-position: 0px 450px;
+        height: 450px;
+        opacity: 0.9;
+        text-align: right;
+    }
+</style>
+
+<div class="jumbotron">
+    <h1>HillbillyMatch</h1>
+    <p class="lead">@HillbillyMatch.International.AppResources.WebsiteDescription</p>
+    @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+    
+</div>
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <!--Card-->
+            <div class="card" style="width: 20rem;">
+                @{ 
+                    var imgSrc = "";
+                    if (item.ProfileImage != null)
+                    {
+                        var base64 = Convert.ToBase64String(item.ProfileImage);
+                        imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                    }
+                    else
+                    {
+                        imgSrc = "/Content/Images/noimage.jpg";
+                    }
+                }
+                <a href="@Url.Action("UserProfile", "Profile", new { id = item.Id })">
+                    <img class="card-img-top" width="200" height="190" src="@imgSrc" alt="Card image cap" style="border-radius: 5px;">
+                </a>            
+                <div class="card-block">
+                    <a href="@Url.Action("UserProfile", "Profile", new { id = item.Id })">
+                        <h4 class="card-title">@item.Firstname @item.Lastname</h4>
+                    </a>          
+                    <p class="card-text">@item.Description</p>
+                    @Html.ActionLink(@HillbillyMatch.International.AppResources.ViewProfile, "UserProfile", "Profile", new { id = item.Id}, null)
+                </div>
+            </div>
+            <!--/.Card-->
+        </div>
+    }
+
+</div>

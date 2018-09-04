@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserXmlViewModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <userId>2b299b63-edc8-4ad9-a963-3ca8690b367a</userId>
+  <Firstname>Jim</Firstname>
+  <Lastname>Bob</Lastname>
+  <gender>Man</gender>
+  <RequestsRecieved>
+    <Sender>Dale Bauer</Sender>
+    <Date>2018-01-07T11:18:50.547</Date>
+  </RequestsRecieved>
+  <RequestsRecieved>
+    <Sender>Bart Gus</Sender>
+    <Date>2018-01-07T11:18:50.547</Date>
+  </RequestsRecieved>
+  <RequestsRecieved>
+    <Sender>Woody Buckley</Sender>
+    <Date>2018-01-07T11:18:50.547</Date>
+  </RequestsRecieved>
+  <RequestsRecieved>
+    <Sender>Ray Wayne</Sender>
+    <Date>2018-01-07T11:18:50.547</Date>
+  </RequestsRecieved>
+  <RequestsRecieved>
+    <Sender>Buffy Sue</Sender>
+    <Date>2018-01-07T11:18:50.547</Date>
+  </RequestsRecieved>
+  <PostsRecieved>
+    <Sender>Jim Bob</Sender>
+    <Text>Get your own beers!</Text>
+    <Date>2017-11-20T14:40:32</Date>
+  </PostsRecieved>
+  <PostsRecieved>
+    <Sender>Dale Bauer</Sender>
+    <Text>Can I buy a few beers?</Text>
+    <Date>2017-11-20T14:32:00</Date>
+  </PostsRecieved>
+  <PostsRecieved>
+    <Sender>Dale Bauer</Sender>
+    <Text>What is happening today?</Text>
+    <Date>2017-10-25T14:32:00</Date>
+  </PostsRecieved>
+  <PostsRecieved>
+    <Sender>Dale Bauer</Sender>
+    <Text>I will make better timestamps and messages later</Text>
+    <Date>2017-10-25T14:32:00</Date>
+  </PostsRecieved>
+  <PostsRecieved>
+    <Sender>Dale Bauer</Sender>
+    <Text>I will make better timestamps and messages later</Text>
+    <Date>2017-10-25T14:32:00</Date>
+  </PostsRecieved>
+  <PostsShared>
+    <SendedTo>Jim Bob</SendedTo>
+    <Text>Get your own beers!</Text>
+    <Date>2017-11-20T14:40:32</Date>
+  </PostsShared>
+  <PostsShared>
+    <SendedTo>Dale Bauer</SendedTo>
+    <Text>I will make better timestamps and messages later</Text>
+    <Date>2017-10-25T14:32:00</Date>
+  </PostsShared>
+  <PostsShared>
+    <SendedTo>Dale Bauer</SendedTo>
+    <Text>I will make better timestamps and messages later</Text>
+    <Date>2017-10-25T14:32:00</Date>
+  </PostsShared>
+  <PostsShared>
+    <SendedTo>Dale Bauer</SendedTo>
+    <Text>I will make better timestamps and messages later</Text>
+    <Date>2017-10-25T14:32:00</Date>
+  </PostsShared>
+</UserXmlViewModel>

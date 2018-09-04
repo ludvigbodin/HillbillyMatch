@@ -1,0 +1,198 @@
+﻿@model HillbillyMatch.Models.ProfilePageEditViewModel
+@using Datalayer
+@{
+    ViewBag.Title = HillbillyMatch.International.AppResources.Edit;
+}
+
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+
+
+<h2>@HillbillyMatch.International.AppResources.Edit</h2>
+
+@using (Html.BeginForm("Edit", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid">
+       <div class="row">
+           <div class="col-md-7">
+               <div class="form-horizontal">
+                   <hr />
+                   @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.Firstname, htmlAttributes: new { @class = "control-label col-md-2" })
+                       <div class="col-md-10">
+                           @Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control" } })
+                           @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.Lastname, htmlAttributes: new { @class = "control-label col-md-2" })
+                       <div class="col-md-10">
+                           @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control" } })
+                           @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                       <div class="col-md-10">
+                           @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                           @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                       <div class="col-md-10">
+                           @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                           @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.ProfilpageImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                       <div class="col-md-10">
+                           <input type="file" name="imageFile" asp-for="Image" />
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.IsVisibleForSearches, new { @class = "control-label col-md-2" })
+                       <div class="col-md-4">
+                           @Html.EditorFor(model => model.IsVisibleForSearches, new { htmlAttributes = new { @class = "form-control" } })
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       <div class="col-md-offset-2 col-md-10">
+                           <input type="submit" value="Save" class="btn btn-default" />
+                       </div>
+                   </div>
+               </div>
+           </div>
+
+           <div class="col-md-5">
+               <div class="form-horizontal">
+                   <hr />
+
+                   <h4>Matching questions</h4>
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.QuestionKindOfHillbilly, new { @class = "control-label col-md-4" })
+                       <div class="col-md-8 right-side-edit">
+                           @Html.DropDownList("QuestionKindOfHillbilly",
+                           EnumHelper.GetSelectList(typeof(QuestionKindOfHillbilly)),
+                           new { @class = "form-control" })
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.QuestionBoundaries, new { @class = "control-label col-md-4" })
+                       <div class="col-md-8 right-side-edit">
+                           @Html.DropDownList("QuestionBoundaries",
+                           EnumHelper.GetSelectList(typeof(QuestionBoundaries)),
+                           new { @class = "form-control" })
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.QuestionDrive, new { @class = "control-label col-md-4" })
+                       <div class="col-md-8 right-side-edit">
+                           @Html.DropDownList("QuestionDrive",
+                           EnumHelper.GetSelectList(typeof(QuestionDrive)),
+                           new { @class = "form-control" })
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.QuestionDrunkPeriods, new { @class = "control-label col-md-4" })
+                       <div class="col-md-8 right-side-edit">
+                           @Html.DropDownList("QuestionDrunkPeriods",
+                           EnumHelper.GetSelectList(typeof(QuestionDrunkPeriods)),
+                           new { @class = "form-control" })
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.QuestionLive, new { @class = "control-label col-md-4" })
+                       <div class="col-md-8 right-side-edit">
+                           @Html.DropDownList("QuestionLive",
+                           EnumHelper.GetSelectList(typeof(QuestionLive)),
+                           new { @class = "form-control" })
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.QuestionSpeed, new { @class = "control-label col-md-4" })
+                       <div class="col-md-8 right-side-edit">
+                           @Html.DropDownList("QuestionSpeed",
+                           EnumHelper.GetSelectList(typeof(QuestionSpeed)),
+                           new { @class = "form-control" })
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.QuestionFun, new { @class = "control-label col-md-4" })
+                       <div class="col-md-8 right-side-edit">
+                           @Html.DropDownList("QuestionFun",
+                           EnumHelper.GetSelectList(typeof(QuestionFun)),
+                           new { @class = "form-control" })
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.QuestionFood, new { @class = "control-label col-md-4" })
+                       <div class="col-md-8 right-side-edit">
+                           @Html.DropDownList("QuestionFood",
+                           EnumHelper.GetSelectList(typeof(QuestionFood)),
+                           new { @class = "form-control" })
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.QuestionMaterial, new { @class = "control-label col-md-4" })
+                       <div class="col-md-8 right-side-edit">
+                           @Html.DropDownList("QuestionMaterial",
+                           EnumHelper.GetSelectList(typeof(QuestionMaterial)),
+                           new { @class = "form-control" })
+                       </div>
+                   </div>
+                   </div>
+               </div>
+       </div>
+    </div>
+
+}
+
+<div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Close account
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Please confirm</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you wanna close your account?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    
+                    <button type="button" onclick="location.href='@Url.Action("CloseAccount", "Profile")'" class="btn btn-primary">Yes</button>             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

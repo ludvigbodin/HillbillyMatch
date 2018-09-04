@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = HillbillyMatch.International.AppResources.Search;
+}
+<script>
+    $(window).load(function () {
+        $("#searchField").focus();
+    })
+</script>
+
+<div class="row">
+    <h2>@HillbillyMatch.International.AppResources.SearchTitle</h2>
+    <div class="inner-addon right-addon" style="width: 40%; float: left;">
+        <input id="searchField" type="text" onkeyup="searchFunction(this)" class="form-control" placeholder="@HillbillyMatch.International.AppResources.Name" />
+    </div>
+    <h3 style="width: 10%; display: inline;">@HillbillyMatch.International.AppResources.Or</h3>
+    <button style="float: right; margin-right: 30%;" type="button" onclick="findMatchingPartner()" class="btn btn-primary">@HillbillyMatch.International.AppResources.FindMatchingPartner</button>
+    <hr />
+</div>
+
+
+
+<div class="row searchResult">
+    
+</div>
+
+@section scripts {
+    
+<script src="~/Scripts/search-user-script.js/search-user.js"></script>
+}
+
+
+<style>
+    /* enable absolute positioning */
+    .inner-addon {
+        position: relative;
+    }
+
+    .list-content {
+        min-height: 300px;
+    }
+
+        .list-content .list-group .title {
+            background: #5bc0de;
+            border: 2px solid #DDDDDD;
+            font-weight: bold;
+            color: #FFFFFF;
+        }
+
+    .list-group-item img {
+        height: 80px;
+        width: 80px;
+    }
+
+    .jumbotron .btn {
+        padding: 5px 5px !important;
+        font-size: 12px !important;
+    }
+
+    .prj-name {
+        color: #5bc0de;
+    }
+
+    .break {
+        width: 100%;
+        margin: 20px;
+    }
+
+    .name {
+        color: #5bc0de;
+    }
+
+    .pull-right {
+        margin-right: 20px;
+    }
+
+    .btn {
+        padding: 5px 7px;
+        border-radius: 5px;
+    }
+
+</style>
+

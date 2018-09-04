@@ -1,0 +1,152 @@
+﻿@model HillbillyMatch.Models.RegisterViewModel
+@using Datalayer
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Create a new account.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Firstname, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Firstname, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Lastname, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Lastname, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownList("Gender", EnumHelper.GetSelectList(typeof(Gender)),
+           "Select Gender", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+
+        <hr />
+        <h4>Matching questions</h4>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuestionKindOfHillbilly, new { @class = "control-label col-md-2" })
+            <div class="col-md-10 right-side-edit">
+                @Html.DropDownList("QuestionKindOfHillbilly",
+                           EnumHelper.GetSelectList(typeof(QuestionKindOfHillbilly)),
+                           new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuestionBoundaries, new { @class = "control-label col-md-2" })
+            <div class="col-md-10 right-side-edit">
+                @Html.DropDownList("QuestionBoundaries",
+                           EnumHelper.GetSelectList(typeof(QuestionBoundaries)),
+                           new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuestionDrive, new { @class = "control-label col-md-2" })
+            <div class="col-md-10 right-side-edit">
+                @Html.DropDownList("QuestionDrive",
+                           EnumHelper.GetSelectList(typeof(QuestionDrive)),
+                           new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuestionDrunkPeriods, new { @class = "control-label col-md-2" })
+            <div class="col-md-10 right-side-edit">
+                @Html.DropDownList("QuestionDrunkPeriods",
+                           EnumHelper.GetSelectList(typeof(QuestionDrunkPeriods)),
+                           new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuestionLive, new { @class = "control-label col-md-2" })
+            <div class="col-md-10 right-side-edit">
+                @Html.DropDownList("QuestionLive",
+                           EnumHelper.GetSelectList(typeof(QuestionLive)),
+                           new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuestionSpeed, new { @class = "control-label col-md-2" })
+            <div class="col-md-10 right-side-edit">
+                @Html.DropDownList("QuestionSpeed",
+                           EnumHelper.GetSelectList(typeof(QuestionSpeed)),
+                           new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuestionFun, new { @class = "control-label col-md-2" })
+            <div class="col-md-10 right-side-edit">
+                @Html.DropDownList("QuestionFun",
+                           EnumHelper.GetSelectList(typeof(QuestionFun)),
+                           new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuestionFood, new { @class = "control-label col-md-2" })
+            <div class="col-md-10 right-side-edit">
+                @Html.DropDownList("QuestionFood",
+                           EnumHelper.GetSelectList(typeof(QuestionFood)),
+                           new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuestionMaterial, new { @class = "control-label col-md-2" })
+            <div class="col-md-10 right-side-edit">
+                @Html.DropDownList("QuestionMaterial",
+                           EnumHelper.GetSelectList(typeof(QuestionMaterial)),
+                           new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Register" />
+            </div>
+        </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

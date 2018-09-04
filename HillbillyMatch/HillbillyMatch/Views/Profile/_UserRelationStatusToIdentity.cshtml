@@ -1,0 +1,24 @@
+﻿@model HillbillyMatch.Models.UserProfileRelationStatus
+
+@{
+    switch (Model.RelationStatusToIdentity)
+    {
+        case HillbillyMatch.Models.RelationStatusToIdentity.IsFriend:
+            <a href="#" class="deleteFriendUserProfile" data-post-id="@Model.RelationStatusId" data-user-id="@Model.UserId">@HillbillyMatch.International.AppResources.DeleteFriend</a>
+            break;
+        case HillbillyMatch.Models.RelationStatusToIdentity.HasSendRequest:
+            <a href="#" class="withdrawRequestUserProfile" data-post-id="@Model.RelationStatusId" data-user-id="@Model.UserId">@HillbillyMatch.International.AppResources.WithdrawRequest</a>
+            break;
+        case HillbillyMatch.Models.RelationStatusToIdentity.HasRecievedRequest:
+            <a href="#" class="acceptRequestUserProfile" data-post-id="@Model.RelationStatusId" data-user-id="@Model.UserId">@HillbillyMatch.International.AppResources.AcceptRequest</a>
+            <br />
+            <a href="#" class="declineRequestUserProfile" data-post-id="@Model.RelationStatusId" data-user-id="@Model.UserId">@HillbillyMatch.International.AppResources.DeclineRequest</a>
+            break;
+        case HillbillyMatch.Models.RelationStatusToIdentity.IsNotFriend:
+            <a href="#" class="sendRequestUserProfile" data-post-id="@Model.RelationStatusId" data-user-id="@Model.UserId">@HillbillyMatch.International.AppResources.SendRequest</a>
+            break;
+        default:
+            break;
+    }
+
+}
